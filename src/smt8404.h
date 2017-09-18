@@ -10,17 +10,17 @@
 
 // Data updates every 1 second.
 
-class smt8404 {
+class Smt8404 {
 private:
   uint16_t HCHOdata = 0;
   uint8_t digiNum = 0;
   const byte sig_op = 0xFF;
   unsigned long timeout;
-  SoftwareSerial* _dartSerial;
+  SoftwareSerial* _smt8404Serial;
   static const decltype(timeout) timeoutPassive = 68;
   uint8_t CheckSum(uint8_t *i, uint8_t ln);
 public:
-	enum dartStatus : uint8_t {
+	enum smt8404Status : uint8_t {
 		OK = 0,
 		noData,
 		readError,
@@ -34,13 +34,13 @@ public:
   static constexpr const char* Metric = "mg/m3";
   static constexpr const char* Type = "HCHO";
 
-  smt8404(int8_t swsRX, int8_t swsTX);
-  smt8404(void);
-	~smt8404();
+  Smt8404(int8_t swsRX, int8_t swsTX);
+  Smt8404(void);
+	~Smt8404();
 	bool begin(void);
 	void end(void);
 	size_t available(void);
-	dartStatus read(void);
+	smt8404Status read(void);
   bool waitForData(const unsigned int maxTime, const size_t nData = 0);
   uint16_t getHCHO(void);
   uint8_t getDigi(void);
