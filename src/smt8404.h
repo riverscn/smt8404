@@ -25,8 +25,11 @@ public:
 		noData,
 		readError,
 		frameLenMismatch,
-		sumError
+		sumError,
+    nValues_SmtStatus,
   };
+
+  static const char *errorMsg[nValues_SmtStatus];
 
   void setTimeout(const decltype(timeout) timeout);
 	decltype(timeout) getTimeout(void) const;

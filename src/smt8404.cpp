@@ -109,3 +109,11 @@ uint8_t Smt8404::CheckSum(uint8_t *i, uint8_t ln) {
   tempq = (~tempq) + 1;
   return tempq;
 }
+
+const char * Smt8404::errorMsg[nValues_SmtStatus]{
+	"OK",
+	"noData",
+	"readError",
+	"frameLenMismatch",
+	"sumError"
+};
